@@ -5,15 +5,13 @@ abstract class PostsState{}
 
 class LoadingPostsState extends PostsState {}
 
-
 class LoadedPostsState extends PostsState {
-  List<Post>? posts;
-  LoadedPostsState({ this.posts});
+  List<Post> posts;
+  LoadedPostsState({ required this.posts});
 
 }
 
-
 class FailedToLoadPostsState extends PostsState {
-  Error error;
-  FailedToLoadPostsState({required this.error});
+   Error ?error;
+  FailedToLoadPostsState(Object e, { this.error});
 }

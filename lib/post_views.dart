@@ -5,8 +5,6 @@ import 'package:flutter_bloc_test/bloc/posts_bloc.dart';
 import 'package:flutter_bloc_test/bloc/posts_event.dart';
 import 'package:flutter_bloc_test/bloc/posts_state.dart';
 
-
-
 class PostsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,11 +25,11 @@ class PostsView extends StatelessWidget {
               onRefresh: () async =>
                   BlocProvider.of<PostsBloc>(context).add(PullToRefreshEvent()),
               child: ListView.builder(
-                  itemCount: state.posts!.length,
+                  itemCount: state.posts.length,
                   itemBuilder: (context, index) {
                     return Card(
                       child: ListTile(
-                        title: Text("${state.posts![index].title}"),
+                        title: Text("${state.posts[index].name}"),
                       ),
                     );
                   }),
